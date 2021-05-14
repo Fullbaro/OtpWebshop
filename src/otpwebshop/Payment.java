@@ -4,20 +4,20 @@ public class Payment extends BaseClass{
 
 	// GLOBAL VARAIABLES
 	
-	private String wSID, cID, type, date;
+	private String type, date;
 	private int iD, amount, bankAccountNumber, cardNumber;
 		
 	// END OF GLOBAL VARIABLES
 	
-	public Payment(int iD, String wSID, String cID, String type, int amount, int bankAccountNumber, int cardNumber, String date) {
-		super(wSID, cID);
+	public Payment(String[] data) throws Exception{
+		super(data[1], data[2]);
 		
-		this.iD = iD;
-		this.type = type;
-		this.amount = amount;
-		this.bankAccountNumber = bankAccountNumber;
-		this.cardNumber = cardNumber;
-		this.date = date;
+		this.iD = Integer.parseInt(data[3]);
+		this.type = data[4];
+		this.amount = Integer.parseInt(data[5]);
+		this.bankAccountNumber = Integer.parseInt(data[6]);
+		this.cardNumber = Integer.parseInt(data[7]);
+		this.date = data[8];
 	}
 	
 }

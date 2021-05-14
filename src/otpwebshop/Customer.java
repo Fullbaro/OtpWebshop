@@ -4,15 +4,15 @@ public class Customer extends BaseClass{
 
 	// GLOBAL VARAIABLES
 	
-	private String wSID, cID, name, address;
+	private String name, address;
 	
 	// END OF GLOBAL VARIABLES
 	
-	public Customer(String wSID, String cID, String name, String address) {
-		super(wSID, cID);
+	public Customer(String[] data) {
+		super(data[0], data[1]);
 		
-		this.name = name;
-		this.address = address;
+		this.name = data[2];
+		this.address = data[3];		
 	}
 	
 }

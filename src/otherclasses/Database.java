@@ -15,7 +15,7 @@ public class Database {
 	
 	private static Connection conn;
     private static Statement stat;
-    public static Vector<String[]> sel = new Vector();
+    private static Vector<String[]> sel = new Vector();
 	
 	// END OF GLOBAL VARIABLES
 	
@@ -24,36 +24,24 @@ public class Database {
      * Connect to SQLite database
      * @param Name of file
      */
-    public static void connect(String fajl) {
-       try {
-          conn = DriverManager.getConnection("jdbc:sqlite:" + fajl);
-          stat = conn.createStatement();
-       } catch (Exception ex) {
-          ex.printStackTrace();
-       }
+    public static void connect(String fajl) throws Exception{       
+    	conn = DriverManager.getConnection("jdbc:sqlite:" + fajl);
+        stat = conn.createStatement();       
     }
     
     /**
      * Disconnect from database
      */
-    public static void disconnect() {
-       try {
-          conn.close();
-       } catch (Exception ex) {
-          ex.printStackTrace();
-       }
+    public static void disconnect() throws Exception{       
+        conn.close();       
     }
     
     /**
      * Execute sql command
      * @param sql command
      */
-    public static void exec(String sql) {
-       try {
-          stat.execute(sql);
-       } catch (Exception ex) {
-          ex.printStackTrace();          
-       }
+    public static void exec(String sql) throws Exception{       
+    	stat.execute(sql);       
     }
     
     /**
@@ -61,24 +49,19 @@ public class Database {
      * @param sql sql command
      * @return String array generic vector. Vector is for rows and array is for columns.
      */
-    public static Vector<String[]> lekerdez(String sql){
-       try {
-          Vector<String[]> v = new Vector();
-          ResultSet st = stat.executeQuery(sql);
-          ResultSetMetaData meta = st.getMetaData();
-          int n = meta.getColumnCount();
-          while(st.next()) {
-             String[] t = new String[n];
-             for(int i = 1; i <= n; ++i) {
-                t[i - 1] = st.getString(i);
-             }
-             v.add(t);
-          }
-          return v;
-       } catch (Exception ex) {
-          ex.printStackTrace();
-          return null;
-       }
+    public static Vector<String[]> select(String sql) throws Exception{
+    	Vector<String[]> v = new Vector();
+    	ResultSet st = stat.executeQuery(sql);
+    	ResultSetMetaData meta = st.getMetaData();
+    	int n = meta.getColumnCount();
+    	while(st.next()) {
+    		String[] t = new String[n];
+    		for(int i = 1; i <= n; ++i) {
+    			t[i - 1] = st.getString(i);
+            }	
+    		v.add(t);
+    	}
+    	return v;       
     }
     
 }

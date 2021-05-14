@@ -4,7 +4,7 @@ public abstract class BaseClass {
 
 	// GLOBAL VARIABLES
 	
-	private String wSID, cID;
+	protected String wSID, cID;
 	
 	// END OF GLOBAL VARIABLES
 	
