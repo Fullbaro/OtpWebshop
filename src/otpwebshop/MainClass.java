@@ -8,7 +8,7 @@ public class MainClass{
 
 	// GLOBAL VARIABLES
 	
-	
+	private Vector<Payment> payments = new Vector<Payment>();
 	
 	// END OF GLOBAL VARIABLES
 	
@@ -26,11 +26,11 @@ public class MainClass{
 		Tester tester = new Tester();
 		
 		databse.connect("src/Assets/Database.db");		
-		for(String[] data : databse.select("SELECT * FROM payments")) {
+		for(String[] data : databse.select("SELECT * FROM payments"))
 			if(tester.tesPayment(data)) {
-				
-			}
-		}					
+				payments.add(new Payment(data));
+			}else
+				System.out.println("EZ bukta.");						
 	}	
 	
 	public static void main(String[] args) {
