@@ -1,5 +1,7 @@
 package otherclasses;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -19,7 +21,7 @@ public class Tester {
 	 * @param data
 	 * @return
 	 */
-	public boolean testCustomer(String[] data){
+	public boolean testCustomer(String[] data) throws Exception {
 		String msg = "";
 		msg += isWSID(data[0]);
 		msg += isCID(data[1]);
@@ -27,7 +29,7 @@ public class Tester {
 		msg += isAddress(data[3]);
 		
 		if(msg.length() > 0) {			
-			System.out.println("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));		
+			log("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));		
 			return false;
 		}else return true;
 	}
@@ -37,7 +39,7 @@ public class Tester {
 	 * @param data
 	 * @return
 	 */
-	public boolean testPayment(String[] data) {
+	public boolean testPayment(String[] data) throws Exception {
 		String msg = "";
 		msg+= isWSID(data[1]);
 		msg+= isCID(data[2]);
@@ -50,7 +52,7 @@ public class Tester {
 		msg+= isDate(data[7]);
 		
 		if(msg.length() > 0) {			
-			System.out.println("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));
+			log("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));
 			return false;
 		}else return true;
 	}
@@ -115,7 +117,9 @@ public class Tester {
 		}catch(Exception ex) {
 			return "Date: "+date+" ";
 		}
-	}	
+	}
+	
+	// OTHER METHODS
 	
 	/**
 	 * 
@@ -128,5 +132,18 @@ public class Tester {
 				re+=s;
 			else re += ", "+s;
 		return re;
+	}
+	
+	/**
+	 * 
+	 */
+	private void log(String msg) throws Exception{
+		FileWriter fw = new FileWriter("src/Assets/application.log", true);
+        BufferedWriter bw = new BufferedWriter(fw); 
+        msg = new Date()+": "+msg;
+        bw.newLine(); 
+        bw.write(msg);                      
+        bw.close();
+		System.out.println(msg);
 	}
 }
