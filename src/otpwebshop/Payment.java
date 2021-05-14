@@ -9,6 +9,11 @@ public class Payment extends BaseClass{
 		
 	// END OF GLOBAL VARIABLES
 	
+	/**
+	 * Constructor
+	 * @param data - All parameters of a pyment
+	 * @throws Exception
+	 */
 	public Payment(String[] data) throws Exception{
 		super(data[1], data[2]);
 		

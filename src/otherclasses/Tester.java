@@ -17,9 +17,9 @@ public class Tester {
 	// GLOBAL VARIABLES
 	
 	/**
-	 * 
-	 * @param data
-	 * @return
+	 * Checks if there are errors in a customer's data
+	 * @param data - All parameters of a customer
+	 * @return - boolean
 	 */
 	public boolean testCustomer(String[] data) throws Exception {
 		String msg = "";
@@ -35,9 +35,9 @@ public class Tester {
 	}
 	
 	/**
-	 * 
-	 * @param data
-	 * @return
+	 * Checks if there are errors in a payment's data
+	 * @param data - All parameters of a payment
+	 * @return - boolean
 	 */
 	public boolean testPayment(String[] data) throws Exception {
 		String msg = "";
@@ -122,8 +122,8 @@ public class Tester {
 	// OTHER METHODS
 	
 	/**
-	 * 
-	 * @return
+	 * ToString for an arry
+	 * @return - String
 	 */
 	private String arrayFormat(String[] array) {
 		String re = "";
@@ -135,7 +135,7 @@ public class Tester {
 	}
 	
 	/**
-	 * 
+	 * Console and file log.
 	 */
 	private void log(String msg) throws Exception{
 		FileWriter fw = new FileWriter("src/Assets/application.log", true);

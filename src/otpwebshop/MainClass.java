@@ -25,7 +25,7 @@ public class MainClass{
 	}
 	
 	/**
-	 * 
+	 * Reads all the data from the database.
 	 * @throws Exception
 	 */
 	private void readData() throws Exception {		

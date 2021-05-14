@@ -8,6 +8,11 @@ public abstract class BaseClass {
 	
 	// END OF GLOBAL VARIABLES
 	
+	/**
+	 * Constructor
+	 * @param wSID - Webshop ID
+	 * @param cID - Customer ID
+	 */
 	public BaseClass(String wSID, String cID) {
 		this.wSID = wSID;
 		this.cID = cID;

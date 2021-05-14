@@ -8,6 +8,10 @@ public class Customer extends BaseClass{
 	
 	// END OF GLOBAL VARIABLES
 	
+	/**
+	 * Constructor
+	 * @param data - All parameters of a customer
+	 */
 	public Customer(String[] data) {
 		super(data[0], data[1]);
 		
