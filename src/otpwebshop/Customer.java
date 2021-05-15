@@ -17,6 +17,5 @@ public class Customer extends BaseClass{
 		
 		this.name = data[2];
 		this.address = data[3];		
-	}
-	
+	}	
 }

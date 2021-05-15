@@ -17,5 +17,4 @@ public abstract class BaseClass {
 		this.wSID = wSID;
 		this.cID = cID;
 	}
-	
 }

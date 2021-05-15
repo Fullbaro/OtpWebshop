@@ -7,24 +7,21 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.Vector;
 
-
-
 public class Database {	
 	
 	// GLOBAL VARIABLES
 	
-	private static Connection conn;
-    private static Statement stat;
-    private static Vector<String[]> sel = new Vector();
+	private Connection conn;
+    private Statement stat;
+    private Vector<String[]> sel = new Vector();
 	
 	// END OF GLOBAL VARIABLES
-	
-	
+		
 	/**
      * Connect to SQLite database
      * @param Name of file
      */
-    public static void connect(String fajl) throws Exception{       
+    public void connect(String fajl) throws Exception{       
     	conn = DriverManager.getConnection("jdbc:sqlite:" + fajl);
         stat = conn.createStatement();       
     }
@@ -32,7 +29,7 @@ public class Database {
     /**
      * Disconnect from database
      */
-    public static void disconnect() throws Exception{       
+    public void disconnect() throws Exception{       
         conn.close();       
     }
     
@@ -40,7 +37,7 @@ public class Database {
      * Execute sql command
      * @param sql command
      */
-    public static void exec(String sql) throws Exception{       
+    public void exec(String sql) throws Exception{       
     	stat.execute(sql);       
     }
     
@@ -49,7 +46,7 @@ public class Database {
      * @param sql sql command
      * @return String array generic vector. Vector is for rows and array is for columns.
      */
-    public static Vector<String[]> select(String sql) throws Exception{
+    public Vector<String[]> select(String sql) throws Exception{
     	Vector<String[]> v = new Vector();
     	ResultSet st = stat.executeQuery(sql);
     	ResultSetMetaData meta = st.getMetaData();
@@ -63,5 +60,4 @@ public class Database {
     	}
     	return v;       
     }
-    
 }

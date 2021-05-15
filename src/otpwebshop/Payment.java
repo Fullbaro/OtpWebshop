@@ -1,17 +1,21 @@
 package otpwebshop;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Payment extends BaseClass{
 
 	// GLOBAL VARAIABLES
 	
-	private String type, date, bankAccountNumber, cardNumber;
+	private String type, bankAccountNumber, cardNumber;
 	private int iD, amount;
+	private Date date;
 		
 	// END OF GLOBAL VARIABLES
 	
 	/**
 	 * Constructor
-	 * @param data - All parameters of a pyment
+	 * @param data - All parameters of a payment
 	 * @throws Exception
 	 */
 	public Payment(String[] data) throws Exception{
@@ -22,7 +26,6 @@ public class Payment extends BaseClass{
 		this.amount = Integer.parseInt(data[4]);
 		this.bankAccountNumber = data[5].length() > 0 ? data[5] : null;
 		this.cardNumber = data[6].length() > 0 ? data[6] : null;
-		this.date = data[7];
-	}
-	
+		this.date = new SimpleDateFormat("yyyy.MM.dd").parse(data[7]);
+	}	
 }

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Tester {
+public class Tester implements Formatter{
 	
 	// GLOBAL VARIABLES
 		
@@ -52,7 +52,7 @@ public class Tester {
 		msg+= isDate(data[7]);
 		
 		if(msg.length() > 0) {			
-			log("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));
+			log("A hibás rekord(ok): "+msg+" Ebben a sorban: "+arrayFormat(data));			
 			return false;
 		}else return true;
 	}
@@ -104,7 +104,7 @@ public class Tester {
 	}
 	
 	private String isCardOrBankNumber(String number) {
-		pattern = Pattern.compile("^[1-9]+,[0-9]+E\\+15$");
+		pattern = Pattern.compile("^[1-9]+,?[0-9]{0,15}+E\\+15$");
 		matcher = pattern.matcher(number);		
 		if(matcher.matches()) return "";
 		else return number;
@@ -122,10 +122,11 @@ public class Tester {
 	// OTHER METHODS
 	
 	/**
-	 * ToString for an arry
+	 * ToString for an array
 	 * @return - String
 	 */
-	private String arrayFormat(String[] array) {
+	@Override
+	public String arrayFormat(String[] array) {
 		String re = "";
 		for(String s : array)
 			if(s.equals(array[0]))
@@ -140,9 +141,9 @@ public class Tester {
 	private void log(String msg) throws Exception{
 		FileWriter fw = new FileWriter("src/Assets/application.log", true);
         BufferedWriter bw = new BufferedWriter(fw); 
-        msg = new Date()+": "+msg;
-        bw.newLine(); 
-        bw.write(msg);                      
+        msg = new Date()+": "+msg;        
+        bw.write(msg);            
+        bw.newLine();
         bw.close();
 		System.out.println(msg);
 	}
