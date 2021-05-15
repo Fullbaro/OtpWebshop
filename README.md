@@ -1,5 +1,5 @@
 Tekintve, hogy nem volt fejlesztői környezet megszabva, Eclipse-t használtam.
-Az adatokat egy SQLite adatbázisba importáltam az egyszerő kezelhetőség érdekében.
+Az adatokat egy SQLite adatbázisba importáltam az egyszerű kezelhetőség érdekében.
 
 A projekt osztálydiagramja:
 ![Classdiagram](https://i.ibb.co/Yk76JPv/class.png)
