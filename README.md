@@ -4,5 +4,7 @@ Az adatokat egy SQLite adatbázisba importáltam az egyszerő kezelhetőség ér
 A projekt osztálydiagramja:
 ![Classdiagram](https://i.ibb.co/Yk76JPv/class.png)
 
+
 Adatabázis rajz:
+
 ![Database](https://i.ibb.co/ZJ2m1pr/databse.png)
